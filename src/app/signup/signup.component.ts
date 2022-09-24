@@ -1,7 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {Author} from "../model/author.model";
+import {Reader} from "../model/reader.model";
 import {AuthorService} from "../service/author.service";
 import {NotificationService} from "../service/notification.service";
+import {UserService} from "../service/user.service";
 
 @Component({
   selector: 'app-signup',
@@ -10,22 +12,44 @@ import {NotificationService} from "../service/notification.service";
 })
 export class SignupComponent implements OnInit {
 
-  constructor(private authorService: AuthorService,
+  constructor(private userService: UserService,
               private notificationService: NotificationService) {
   }
 
-  newAuthor: Author = new Author()
+  user: Reader = new Reader()
+  rePassword?: string
 
   ngOnInit(): void {
   }
 
-  save() {
-    if (!this.newAuthor || this.newAuthor.name == null || this.newAuthor.name.trim().length == 0) {
-      this.notificationService.error("Author name can't empty!")
-    } else {
-      this.authorService.save(this.newAuthor).subscribe(value => {
-        this.notificationService.success("New author created: " + value.name)
-      })
+  signup() {
+    if (this.user.name == null || this.user.name.trim().length == 0) {
+      this.notificationService.error("Reader name can't empty!")
+      return
     }
+    if (this.user.email == null || this.user.email.trim().length == 0) {
+      this.notificationService.error("Reader email can't empty!")
+      return
+    }
+    if (this.user.password == null || this.user.password.trim().length == 0) {
+      this.notificationService.error("Reader password can't empty!")
+      return
+    }
+    if (this.rePassword == null) {
+      this.notificationService.error("Reader password can't empty!")
+      return
+    }
+    if (this.user.password != this.rePassword) {
+      this.notificationService.error("Password not match!")
+      return
+    }
+
+    this.userService.save(this.user).subscribe(value => {
+        this.notificationService.success("New reader created: " + value.name)
+      },
+      error => {
+        this.notificationService.success("Opps, Something went wrongs!")
+      })
+
   }
 }
