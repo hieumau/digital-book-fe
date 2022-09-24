@@ -13,7 +13,7 @@ export class IndexComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.router.navigate(['/create-book']).then();
+    this.router.navigate(['/signup']).then();
 
   }
 }

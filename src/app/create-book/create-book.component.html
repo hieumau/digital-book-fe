@@ -1,0 +1,64 @@
+<div class="page-container">
+  <div style="text-align: center"><h1>CREATE BOOK</h1></div>
+  <div class="page-content">
+    <mat-card class="card">
+      <div class="input-text-container">
+        <mat-form-field class="input-field" appearance="fill">
+          <mat-label>Book title</mat-label>
+          <input matInput [(ngModel)]="newBook.title">
+        </mat-form-field>
+      </div>
+      <div class="input-text-container">
+        <mat-form-field class="input-field" appearance="fill">
+          <mat-label>Category</mat-label>
+          <mat-select [(ngModel)]="newBook.category" name="food">
+            <mat-option *ngFor="let category of categories" [value]="category">
+              {{category}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="input-text-container">
+        <mat-form-field class="input-field" appearance="fill">
+          <mat-label>Logo</mat-label>
+          <input matInput [(ngModel)]="newBook.logo">
+        </mat-form-field>
+      </div>
+      <div class="input-text-container">
+        <mat-form-field class="input-field" appearance="fill">
+          <mat-label>Price</mat-label>
+          <input type="number" matInput [(ngModel)]="newBook.price">
+        </mat-form-field>
+      </div>
+      <div class="input-text-container">
+        <mat-form-field class="input-field" appearance="fill">
+          <mat-label>Publisher</mat-label>
+          <input matInput [(ngModel)]="newBook.publisher">
+        </mat-form-field>
+      </div>
+      <div class="input-text-container" style="margin-bottom: 1rem">
+        <mat-form-field appearance="fill">
+          <mat-label>Publish date</mat-label>
+          <input [(ngModel)]="newBook.publishedDate" matInput [matDatepicker]="picker">
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker #picker></mat-datepicker>
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        </mat-form-field>
+      </div>
+      <div class="input-text-container">
+        <mat-form-field class="input-field" appearance="fill">
+          <mat-label>Content</mat-label>
+          <textarea style="height: 4rem" matInput [(ngModel)]="newBook.content"></textarea>
+        </mat-form-field>
+      </div>
+      <div class="input-toggle">
+        <mat-slide-toggle
+          class="toggle"
+          [(ngModel)]="newBook.active">
+          Active
+        </mat-slide-toggle>
+      </div>
+      <button mat-flat-button color="primary" (click)="save()">Save</button>
+    </mat-card>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+<div class="page-container">
+  <div style="text-align: center"><h1>SIGN UP</h1></div>
+  <div class="page-content">
+    <mat-card class="card">
+      <div class="input-text-container">
+        <mat-form-field class="input-field" appearance="fill">
+          <mat-label>Author name</mat-label>
+          <input matInput [(ngModel)]="newAuthor.name">
+        </mat-form-field>
+      </div>
+      <button mat-flat-button color="primary" (click)="save()">Save</button>
+    </mat-card>
+  </div>
+</div>
