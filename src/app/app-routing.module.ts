@@ -1,9 +1,10 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
+import {AuthGuard} from "./auth/auth.guard";
 import {CreateBookComponent} from "./create-book/create-book.component";
 import {IndexComponent} from "./index/index.component";
 import {SearchBookComponent} from "./search-book/search-book.component";
-import {SignInComponent} from "./sign-in/sign-in.component";
+import {LogInComponent} from "./login/log-in.component";
 import {SignupComponent} from "./signup/signup.component";
 
 const routes: Routes = [
@@ -15,11 +16,13 @@ const routes: Routes = [
     path: 'create-book',
     pathMatch: 'full',
     component: CreateBookComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'search-book',
     pathMatch: 'full',
     component: SearchBookComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'signup',
@@ -27,9 +30,9 @@ const routes: Routes = [
     component: SignupComponent,
   },
   {
-    path: 'signin',
+    path: 'login',
     pathMatch: 'full',
-    component: SignInComponent,
+    component: LogInComponent,
   }
 ];
 

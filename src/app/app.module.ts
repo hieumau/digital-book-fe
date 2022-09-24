@@ -25,7 +25,7 @@ import {SearchBookComponent} from './search-book/search-book.component';
 import {IndexComponent} from './index/index.component';
 import {AlertDialog, ConfirmationDialog} from "./service/notification.service";
 import {SignupComponent} from './signup/signup.component';
-import {SignInComponent} from './sign-in/sign-in.component';
+import {LogInComponent} from './login/log-in.component';
 
 
 @NgModule({
@@ -35,7 +35,7 @@ import {SignInComponent} from './sign-in/sign-in.component';
     SearchBookComponent,
     IndexComponent,
     SignupComponent,
-    SignInComponent
+    LogInComponent
   ],
   entryComponents: [ConfirmationDialog, AlertDialog],
   imports: [
