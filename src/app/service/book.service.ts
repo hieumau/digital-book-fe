@@ -14,8 +14,8 @@ export class BookService {
   constructor(private apiService: ApiService) {
   }
 
-  save(book: Book, authorId: number): Observable<Book> {
-    return this.apiService.post<Book>(this.baseUrl + `/author/${authorId}/books`, book)
+  save(book: Book): Observable<Book> {
+    return this.apiService.post<Book>(this.baseUrl, book)
   }
 
   search(category?: string, author?: string, publisher?: string, price?: number): Observable<Book[]> {

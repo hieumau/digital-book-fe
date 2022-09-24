@@ -7,7 +7,7 @@ export class Book {
   title?: string
   category?: Category
   price?: number
-  author?: Author
+  author: Author = new Author()
   publisher?: string
   publishedDate?: Date
   content?: string

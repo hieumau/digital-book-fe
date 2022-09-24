@@ -5,13 +5,13 @@
       <div class="input-text-container">
         <mat-form-field class="input-field" appearance="fill">
           <mat-label>Book title</mat-label>
-          <input matInput [(ngModel)]="newBook.title">
+          <input matInput [(ngModel)]="book.title">
         </mat-form-field>
       </div>
       <div class="input-text-container">
         <mat-form-field class="input-field" appearance="fill">
           <mat-label>Category</mat-label>
-          <mat-select [(ngModel)]="newBook.category" name="food">
+          <mat-select [(ngModel)]="book.category" name="food">
             <mat-option *ngFor="let category of categories" [value]="category">
               {{category}}
             </mat-option>
@@ -20,26 +20,32 @@
       </div>
       <div class="input-text-container">
         <mat-form-field class="input-field" appearance="fill">
+          <mat-label>Author</mat-label>
+          <input matInput [(ngModel)]="book.author.name">
+        </mat-form-field>
+      </div>
+      <div class="input-text-container">
+        <mat-form-field class="input-field" appearance="fill">
           <mat-label>Logo</mat-label>
-          <input matInput [(ngModel)]="newBook.logo">
+          <input matInput [(ngModel)]="book.logo">
         </mat-form-field>
       </div>
       <div class="input-text-container">
         <mat-form-field class="input-field" appearance="fill">
           <mat-label>Price</mat-label>
-          <input type="number" matInput [(ngModel)]="newBook.price">
+          <input type="number" matInput [(ngModel)]="book.price">
         </mat-form-field>
       </div>
       <div class="input-text-container">
         <mat-form-field class="input-field" appearance="fill">
           <mat-label>Publisher</mat-label>
-          <input matInput [(ngModel)]="newBook.publisher">
+          <input matInput [(ngModel)]="book.publisher">
         </mat-form-field>
       </div>
       <div class="input-text-container" style="margin-bottom: 1rem">
         <mat-form-field appearance="fill">
           <mat-label>Publish date</mat-label>
-          <input [(ngModel)]="newBook.publishedDate" matInput [matDatepicker]="picker">
+          <input [(ngModel)]="book.publishedDate" matInput [matDatepicker]="picker">
           <mat-hint>MM/DD/YYYY</mat-hint>
           <mat-datepicker #picker></mat-datepicker>
           <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
@@ -48,13 +54,13 @@
       <div class="input-text-container">
         <mat-form-field class="input-field" appearance="fill">
           <mat-label>Content</mat-label>
-          <textarea style="height: 4rem" matInput [(ngModel)]="newBook.content"></textarea>
+          <textarea style="height: 4rem" matInput [(ngModel)]="book.content"></textarea>
         </mat-form-field>
       </div>
       <div class="input-toggle">
         <mat-slide-toggle
           class="toggle"
-          [(ngModel)]="newBook.active">
+          [(ngModel)]="book.active">
           Active
         </mat-slide-toggle>
       </div>
