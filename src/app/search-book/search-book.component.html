@@ -1,4 +1,7 @@
 <div class="page-container">
+  <div style="padding-right: 1rem; display: flex; justify-content: end">
+    <button mat-stroked-button [routerLink]="'/create-book'">Create new Book</button>
+  </div>
   <div style="text-align: center"><h1>SEARCH BOOK</h1></div>
   <div class="page-content">
     <mat-card class="card flex flex-wrap">
@@ -75,10 +78,10 @@
           <td mat-cell *matCellDef="let element"> {{element.active}} </td>
         </ng-container>
 
-<!--        <ng-container matColumnDef="Content">-->
-<!--          <th mat-header-cell *matHeaderCellDef>Content</th>-->
-<!--          <td mat-cell *matCellDef="let element"> {{element.content}} </td>-->
-<!--        </ng-container>-->
+        <ng-container matColumnDef="Content">
+          <th mat-header-cell *matHeaderCellDef>Content</th>
+          <td mat-cell *matCellDef="let element"> {{element.content}} </td>
+        </ng-container>
 
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row

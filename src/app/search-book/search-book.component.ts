@@ -30,7 +30,7 @@ export class SearchBookComponent implements OnInit {
   publisher?: string
   price?: number
   searchResult: Book[] = []
-  displayedColumns: string[] = ['Title', 'Category', 'Logo', 'Author', 'Price', 'Publisher', 'Publish Date', 'Active',];
+  displayedColumns: string[] = ['Title', 'Category', 'Logo', 'Author', 'Price', 'Publisher', 'Publish Date', 'Active', 'Content'];
 
   search() {
     this.bookService.search(this.category, this.author, this.publisher, this.price).subscribe(value => {
